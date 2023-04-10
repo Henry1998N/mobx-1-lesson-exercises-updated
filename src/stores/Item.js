@@ -12,7 +12,4 @@ export class Item {
       location: observable,
     });
   }
-  setLocation(newLocation) {
-    this.location = newLocation;
-  }
 }

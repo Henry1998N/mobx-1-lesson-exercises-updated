@@ -11,6 +11,7 @@ class Item extends Component {
     this.props.store.editItem(this.props.item.name, newLocation);
   };
   deleteItem = () => {
+    this.props.store.deleteItem(this.props.item.name);
     //your code here
     /*   your code here
             each item should be in an input checkbox
@@ -29,6 +30,7 @@ class Item extends Component {
             value={this.props.item.name}
           />
           <button onClick={this.editItem}>edit</button>
+          <button onClick={this.deleteItem}>delete !</button>
         </div>
       </div>
     );

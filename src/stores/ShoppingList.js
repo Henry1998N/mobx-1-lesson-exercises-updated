@@ -13,10 +13,11 @@ export class ShoppingList {
       checkItem: action,
       addItem: action,
       editItem: action,
+      deleteItem: action,
     });
   }
   checkItem = (name) => {
-    let item = this.list.find((i) => i.name === name);
+    let item = this.findItem(name);
     item.completed = !item.completed;
   };
   addItem = (name) => {
@@ -25,13 +26,17 @@ export class ShoppingList {
     // your code here
   };
   editItem = (itemName, newLocation) => {
-    let itemIndex = this.list.findIndex((item) => item.name == itemName);
-    let listItem = this.list[itemIndex];
-    console.log(listItem);
-    listItem.setLocation(newLocation);
+    let item = this.findItem(itemName);
+    item.location = newLocation;
     // your code here
   };
-  deleteItem = () => {
+  deleteItem = (itemName) => {
+    let item = this.findItem(itemName);
+    this.list.splice(this.list.indexOf(item), 1);
     // your code here
+  };
+  findItem = (itemName) => {
+    let item = this.list.find((i) => i.name === itemName);
+    return item;
   };
 }
